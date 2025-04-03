@@ -1,0 +1,59 @@
+/* Basic styling for the page */
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 80px; /* To avoid navbar overlap */
+}
+
+/* Sidebar styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Initially hidden off-screen to the right */
+    width: 300px;
+    height: 100%;
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px;
+    transition: right 0.3s ease; /* Slide in animation */
+}
+
+.sidebar.active {
+    right: 0; /* Move the sidebar into view */
+}
+
+.sidebar .close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar ul li a:hover {
+    color: #00c8f8;
+}
+
+/* Navbar account button icon */
+#account-button i {
+    font-size: 20px;
+}
+
+/* Optional styling for cart button */
+#cart-button {
+    font-size: 16px;
+}

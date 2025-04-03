@@ -1,0 +1,322 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    margin: 0;
+    padding: 0;
+    transition: margin-left 0.3s ease;
+    padding-top: 70px;  /* Adjust the body padding to ensure content doesn't hide behind the navbar */
+}
+
+/* Header */
+.header {
+    position: fixed;
+    width: 100%;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;       /* Fixed position to keep the navbar at the top */
+    top: 0;                /* Stick it to the top */
+    left: 0;               /* Ensure it spans the full width */
+    width: 100%;           /* Full width of the screen */
+    background: linear-gradient(90deg, #ff7e5f, #feb47b, #6a11cb, #2575fc); /* Gradient background */
+    color: white;
+    z-index: 1000;         /* Ensure the navbar stays on top of other elements */
+    padding: 10px 0;       /* Padding to adjust the navbar height */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for visibility */
+}
+
+.navbar .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #f1f1f1;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.navbar .navbar-nav {
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.navbar .navbar-nav .nav-item {
+    margin-left: 20px;
+}
+
+.navbar .navbar-nav .nav-link {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #f1f1f1;
+}
+
+.navbar .search-bar {
+    width: 250px;
+}
+
+/* Sidebar Styles */
+#sidebar, #account-sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #f8f9fa;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* Set the sidebar below the navbar */
+    background: linear-gradient(135deg, #83ec82, #86e3f3);
+}
+
+#sidebar.active, #account-sidebar.active {
+    left: 0;
+}
+
+#sidebar ul, #account-sidebar ul {
+    padding: 20px;
+    list-style: none;
+    margin: 0;
+}
+
+#sidebar ul li, #account-sidebar ul li {
+    margin: 10px 0;
+}
+
+#sidebar ul li a, #account-sidebar ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+}
+
+#sidebar ul li a:hover, #account-sidebar ul li a:hover {
+    color: #007bff;
+    background-color: #9bb4d0;
+    color: white;
+}
+
+/* Account Menu Styles */
+#account-menu {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 250px;
+    background: linear-gradient(135deg, #83ec82, #86e3f3);
+    z-index: 1000;
+    box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+}
+
+#account-menu.active {
+    display: block;
+}
+
+#account-menu ul {
+    padding: 10px;
+    list-style: none;
+    margin: 0;
+}
+
+#account-menu ul li {
+    margin: 5px 0;
+}
+
+#account-menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    display: block;
+}
+
+#account-menu ul li a:hover {
+    background-color: #9bb4d0;
+    color: white;
+    border-radius: 20px;
+}
+
+#account-button {
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Sidebar Toggle Button */
+.menu-toggle {
+    font-size: 28px;
+    color: white;
+    background: transparent;
+    border: none;
+}
+
+.menu-toggle:hover {
+    color: #f1f1f1;
+}
+
+/* Adjust Navbar when Sidebar is Active */
+body.sidebar-active .navbar {
+    margin-left: 250px;
+}
+
+/* Adjust Main Content when Sidebar is Active */
+body.sidebar-active .container {
+    margin-left: 250px;
+    max-width: calc(100% - 250px);
+}
+
+body.sidebar-active #product-list {
+    max-width: calc(100% - 250px); /* Ensure product list fits within the container */
+    padding-left: 20px; /* Optional: add some padding to the left for spacing */
+}
+
+/* Cart Icon */
+.cart-icon {
+    font-size: 25px;
+    color: white;
+    margin-right: 10px;
+}
+
+.cart-icon:hover {
+    color: #f1f1f1;
+}
+
+/* Product Card Styles */
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.buttons button {
+    width: 48%;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.product-card p {
+    color: #555;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Automatically adjust number of columns */
+    gap: 20px;
+    max-width: 100%;
+}
+.product-grid .product-card {
+    width: 100%;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Product Card Layout */
+.product-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    width: 100%; /* Make sure the product card is 100% of the column width */
+    box-sizing: border-box;
+}
+
+.product-card img {
+    width: 400px;
+    height: 250px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.product-info {
+    flex-grow: 1;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Account Sidebar */
+#account-sidebar {
+    position: fixed;
+    top: 70px;
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(to bottom, #8e2de2, #4a00e0);
+    color: white;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.account-option {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.account-option:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Profile Picture */
+.profile-pic {
+    
+    width: 50px;
+    height: 50px;
+    background-color: #6c757d;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+

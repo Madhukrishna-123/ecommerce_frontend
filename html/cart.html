@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Application</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+     <style>
+        /* Ensure that cart item images are displayed correctly */
+.cart-item img {
+    width: 250px; /* Set the image width */
+    height: 300px; /* Set the image height */
+    object-fit: cover; /* Maintain the aspect ratio and ensure no stretching */
+    margin-right: 15px; /* Add spacing between the image and the text */
+    border-radius: 5px; /* Optional: Round the corners of the image */
+}
+
+/* Ensure the cart item layout is properly aligned */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd; /* Optional: Add a border around each cart item */
+    border-radius: 5px; /* Optional: Round the corners of each cart item */
+    background-color: #f9f9f9; /* Optional: Add a light background color */
+}
+
+/* Style the cart item info text */
+.cart-item-info {
+    flex-grow: 1; /* Ensure the text area takes up the remaining space */
+}
+
+/* Ensure buttons are aligned well */
+.cart-item-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Style the remove button */
+.remove-cart-item {
+    background-color: #ff4d4d; /* Red color for remove */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.remove-cart-item:hover {
+    background-color: #e60000; /* Darker red on hover */
+}
+
+     </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <!-- Menu Toggle Button -->
+        <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- User Greeting -->
+        <span class="user-greeting" id="user-greeting">Hello, Guest</span>
+
+        <!-- Left Empty for Menu Toggle -->
+        <span class="navbar-brand">Ecommerce Application</span>
+
+        <!-- Center Title (Ecommerce Application) -->
+        <div class="ml-auto d-flex align-items-center">
+            <!-- Cart Icon (Redirect to Cart Page) -->
+            <a href="cart.html">
+                <i class="fas fa-shopping-cart cart-icon"></i>
+            </a>
+
+            <!-- Account Icon -->
+            <button class="btn btn-outline-light ml-2" id="account-button">
+                <i class="fas fa-user"></i> <!-- Account Icon -->
+            </button>
+        </div>
+
+
+    </nav>
+
+    <!-- Sidebar (Filters) -->
+    <div id="sidebar">
+        <button id="close-btn" class="menu-toggle">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="#">Filters</a></li>
+            <li><a href="#">Brands</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Price Range</a></li>
+            <li><a href="#">Ratings</a></li>
+            <li><a href="#">More</a></li>
+        </ul>
+    </div>
+
+    <!-- Account Menu (Below Navbar) -->
+    <div id="account-menu">
+        <div class="d-flex align-items-center">
+            <!-- Profile Picture (Initials from First and Last Name) -->
+            <div class="profile-pic" id="profile-pic"></div>
+            <span id="account-name" class="text-white"></span>
+        </div>
+        <ul>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">My Orders</a></li>
+            <li><a href="#">My Cart</a></li>
+            <li><a href="#">Messages</a></li>
+            <li><a href="#">Notifications</a></li>
+            <li><a href="login.html">Log Out</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <!-- <div class="container">
+
+        <div class="container">
+            <div class="cart-container">
+                
+                <div id="cart-items" class="cart-items">
+                  
+                </div>
+                <button id="checkout-button" class="btn btn-primary mt-3">Checkout</button>
+                <button id="clear-cart-btn" class="btn btn-danger mt-3">Clear Cart</button>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container">
+        <div class="main-content">
+            <div class="container mt-1 pt-1">
+            
+                <div id="cart-items" class="product-list">
+                    <!-- Cart items will be inserted here dynamically -->
+                </div>
+            </div>
+            <button id="checkout-button" class="btn btn-primary mt-3">Checkout</button>
+                <button id="clear-cart-btn" class="btn btn-danger mt-3 clear_butn">Clear Cart</button>
+            
+        </div>
+    
+        <!-- Hidden Template for Cart Item -->
+        <template id="cart-item-template">
+            <div class="cart-item">
+                <img src="" alt="" class="cart-item-img">
+                <div class="cart-item-info">
+                    <h3></h3>
+                    <p><strong>Price:</strong> $<span class="price"></span></p>
+                    <p><strong>Quantity:</strong> <span class="quantity"></span></p>
+                </div>
+                <div class="cart-item-actions">
+                    <button class="btn btn-warning remove-cart-item">Remove</button>
+                </div>
+            </div>
+        </template>
+    </div>
+    
+
+    <!-- JS Scripts -->
+    <script src="../js/nav.js"></script>
+    <script src="../js/product.js"></script>
+    <script src="../js/viewcart.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -12,9 +12,17 @@
             <input id="email" type="email" class="form-control mt-3" placeholder="Enter Email">
             <input id="password" type="password" class="form-control mt-3" placeholder="Enter Password">
             <p id="login-error" style="color: red;"></p>
-            <button onclick="loginUser()" class="btn btn-success mt-3">Login</button>
-            <button onclick="redirectTo('register')" class="btn btn-primary mt-3">New User? Register</button>
-            <button onclick="redirectTo('forgotpassword')" class="btn btn-warning mt-3">Forgot Password?</button>
+           
+            
+            <div class="d-flex flex-column gap-2 mt-3">
+                <button onclick="loginUser()" class="btn btn-success">Login</button>
+                <div class="d-flex flex-wrap gap-2">
+                    <button onclick="redirectTo('register')" class="btn btn-primary flex-grow-1">New User? Register</button>
+                    <button onclick="redirectTo('forgotpassword')" class="btn btn-warning flex-grow-1">Forgot Password?</button>
+                </div>
+            </div>
+            
+        
         </div>
     </div>
 

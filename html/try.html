@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Application</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: margin-left 0.3s ease;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: linear-gradient(90deg, #ff7e5f, #feb47b, #6a11cb, #2575fc);
+            color: white;
+            z-index: 1000;
+            position: relative;
+        }
+
+        .navbar .navbar-nav .nav-link {
+            color: white;
+        }
+
+        .navbar .navbar-nav .nav-link:hover {
+            color: #f1f1f1;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 24px;
+            color: white;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .navbar .nav-item {
+            margin-left: 20px;
+        }
+
+        .navbar .navbar-nav {
+            flex-grow: 1;
+            justify-content: center;
+        }
+
+        .navbar .navbar-nav .nav-item {
+            margin: 0;
+        }
+
+        .navbar .navbar-nav .nav-link {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .navbar .navbar-nav .nav-link:hover {
+            color: #f1f1f1;
+        }
+
+        .navbar .search-bar {
+            width: 250px;
+        }
+
+        /* Sidebar Styles */
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #f8f9fa;
+            transition: left 0.3s ease-in-out;
+            box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            background: linear-gradient(135deg, #83ec82, #86e3f3);
+        }
+
+        #sidebar.active {
+            left: 0;
+        }
+
+        #sidebar ul {
+            padding: 20px;
+            list-style: none;
+            margin: 0;
+        }
+
+        #sidebar ul li {
+            margin: 10px 0;
+        }
+
+        #sidebar ul li a {
+            text-decoration: none;
+            color: #000;
+            font-size: 18px;
+        }
+
+        #sidebar ul li a:hover {
+            color: #007bff;
+            background-color: #9bb4d0;
+            color: white;
+          
+        }
+
+        /* Account Menu Styles */
+        #account-menu {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: linear-gradient(135deg, #83ec82, #86e3f3);
+            width: 250px;
+            box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        #account-menu.active {
+            display: block;
+        }
+
+        #account-menu ul {
+            padding: 10px;
+            list-style: none;
+            margin: 0;
+        }
+
+        #account-menu ul li {
+            margin: 5px 0;
+        }
+
+        #account-menu ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px;
+            display: block;
+        }
+
+        #account-menu ul li a:hover {
+            background-color: #9bb4d0;
+            color: white;
+            border-radius: 20px;
+        }
+
+        /* Account Button */
+        #account-button {
+            font-size: 20px;
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Profile Picture */
+        .profile-pic {
+            width: 50px; /* Increased size */
+            height: 50px; /* Increased size */
+            background-color: #6c757d;
+            color: white;
+            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        /* Sidebar Toggle Button */
+        .menu-toggle {
+            font-size: 28px;
+            color: white;
+            background: transparent;
+            border: none;
+        }
+
+        .menu-toggle:hover {
+            color: #f1f1f1;
+        }
+
+        /* Adjust Navbar when Sidebar is Active */
+        body.sidebar-active .navbar {
+            margin-left: 250px;
+        }
+
+        /* Adjust Main Content when Sidebar is Active */
+        body.sidebar-active .container {
+            margin-left: 250px;
+        }
+
+        /* Cart Icon */
+        .cart-icon {
+            font-size: 25px;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .cart-icon:hover {
+            color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <!-- Menu Toggle Button -->
+        <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <!-- User Greeting -->
+        <span class="user-greeting" id="user-greeting">Hello, Guest</span>
+        <!-- Left Empty for Menu Toggle -->
+        <span class="navbar-brand">Ecommerce Application</span>
+
+        <!-- Center Title (Ecommerce Application) -->
+        <div class="ml-auto d-flex align-items-center">
+            <!-- Cart Icon (Redirect to Cart Page) -->
+            <a href="cart.html">
+                <i class="fas fa-shopping-cart cart-icon"></i>
+            </a>
+
+            <!-- Account Icon -->
+            <button class="btn btn-outline-light ml-2" id="account-button">
+                <i class="fas fa-user"></i> <!-- Account Icon -->
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sidebar (Filters) -->
+    <div id="sidebar">
+        <button id="close-btn" class="menu-toggle">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="#">Filters</a></li>
+            <li><a href="#">Brands</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Price Range</a></li>
+            <li><a href="#">Ratings</a></li>
+            <li><a href="#">More</a></li>
+        </ul>
+    </div>
+
+    <!-- Account Menu (Below Navbar) -->
+    <div id="account-menu">
+        <div class="d-flex align-items-center">
+            <!-- Profile Picture (Initials from First and Last Name) -->
+            <div class="profile-pic" id="profile-pic"></div>
+            <span id="account-name" class="text-white"></span>
+        </div>
+        <ul>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">My Orders</a></li>
+            <li><a href="#">My Cart</a></li>
+            <li><a href="#">Messages</a></li>
+            <li><a href="#">Notifications</a></li>
+            <li><button id="logout-btn" class="btn btn-link text-white">Log Out</button></li> <!-- Logout Button -->
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="page-title">Welcome to Our E-Commerce Store!</h1>
+        <!-- Other content here -->
+
+    </div>
+
+    <!-- JS Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+            const closeBtn = document.getElementById('close-btn');
+            const accountButton = document.getElementById('account-button');
+            const accountMenu = document.getElementById('account-menu');
+            const userGreeting = document.getElementById('user-greeting');
+            const profilePic = document.getElementById('profile-pic');
+            const accountName = document.getElementById('account-name');
+            const logoutBtn = document.getElementById('logout-btn');  // Logout button
+
+            // Toggle Sidebar (Filters)
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+                document.body.classList.toggle('sidebar-active'); // Adjust navbar and content when sidebar is active
+            });
+
+            // Close Sidebar (Filters)
+            closeBtn.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                document.body.classList.remove('sidebar-active'); // Adjust navbar and content when sidebar is closed
+            });
+
+            // Toggle Account Menu
+            accountButton.addEventListener('click', () => {
+                accountMenu.classList.toggle('active');
+            });
+
+            // Fetch user details and display first name in navbar
+            const token = localStorage.getItem("token");
+            if (token) {
+                fetch('http://localhost:8080/api/users/userdetails', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                    .then(response => response.json())
+                    .then(user => {
+                        // Display "Hello, FirstName" beside the menu toggle button
+                        userGreeting.innerText = `Hello, ${user.firstName}`;
+
+                        // Display profile initials in the profile pic
+                        const firstLetter = user.firstName.charAt(0).toUpperCase();
+                        const lastLetter = user.secondName.charAt(0).toUpperCase();
+                        profilePic.innerText = firstLetter + lastLetter;
+
+                        // Set the account name
+                        accountName.innerText = `${user.firstName} ${user.secondName}`;
+                    })
+                    .catch(error => console.error('Error fetching user details:', error));
+            } else {
+                window.location.href = 'login.html'; // Redirect to login if no token
+            }
+
+            // Logout functionality
+            logoutBtn.addEventListener('click', () => {
+                // Call the logout API to log the user out
+                const token = localStorage.getItem("token");
+
+                if (token) {
+                    fetch('http://localhost:8080/api/users/logout', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    })
+                        .then(response => {
+                            if (response.ok) {
+                                // Clear the token from localStorage
+                                localStorage.removeItem("token");
+
+                                // Redirect to index.html (or home page)
+                                window.location.href = 'index.html';
+                            } else {
+                                console.error('Logout failed');
+                            }
+                        })
+                        .catch(error => console.error('Error logging out:', error));
+                } else {
+                    console.error('No token found');
+                }
+            });
+        });
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

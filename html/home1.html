@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    
+</head>
+<body>
+    
+    <div class="main-content">
+        
+        <div class="container mt-1 pt-1">
+            <h1 class="text-center mb-4">Product List</h1>
+            <div id="product-list" class="">
+                <!-- Product cards will be inserted here dynamically -->
+            </div>
+        </div>
+    </div>
+    <!-- Hidden Template for Product Card -->
+    <template id="product-template">
+        <div class="product-card">
+            <img src="" alt="">
+            <div class="product-info">
+                <div class="details">
+                    <h3></h3>
+                    <p class="category"></p>
+                    <p><strong>Price:</strong> $<span class="price"></span></p>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-warning add-cart">Add to Cart</button>
+                    <button class="btn btn-success buy-now">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- Bootstrap and Custom JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/product.js"></script>
+</body>
+</html>

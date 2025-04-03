@@ -1,0 +1,114 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    width: 100%;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+/* Main Layout */
+.main-container {
+    display: flex;
+    margin-top: 70px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #ffffff;
+    padding: 15px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 70px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Content */
+.content {
+    margin-left: 270px;
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+/* Product Grid */
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Product Item */
+.product-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Image */
+.product-item img {
+    width: 180px;
+    height: 180px;
+    border-radius: 10px;
+    padding: 5px;
+    background: #f8f9fa;
+}
+
+/* Product Details */
+.product-details {
+    flex: 1;
+    padding-left: 20px;
+}
+
+/* Product Buttons */
+.product-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-actions button {
+    width: 120px;
+}
+
+/* Account Sidebar */
+#account-sidebar {
+    position: fixed;
+    top: 70px;
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(to bottom, #8e2de2, #4a00e0);
+    color: white;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.account-option {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.account-option:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
