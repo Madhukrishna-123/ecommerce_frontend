@@ -14,6 +14,7 @@ function fetchProducts() {
 
             products.forEach(product => {
                 const productCard = template.content.cloneNode(true);
+                productCard.querySelector(".product-id").textContent = product.id;
 
                 productCard.querySelector("img").src = product.imageUrl || "https://via.placeholder.com/200";
                 productCard.querySelector("img").alt = product.name;

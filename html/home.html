@@ -84,7 +84,7 @@
                 </div>
             </div>
             <!-- Hidden Template for Product Card -->
-            <template id="product-template">
+            <!-- <template id="product-template">
                 <div class="product-card">
                     <img src="" alt="">
                     <div class="product-info">
@@ -92,6 +92,27 @@
                             <h3></h3>
                             <p class="category"></p>
                             <p><strong>Price:</strong> $<span class="price"></span></p>
+                        </div>
+                        <div class="buttons">
+                            <button class="btn btn-warning add-cart">Add to Cart</button>
+                            <button class="btn btn-success buy-now">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </template> -->
+
+            <template id="product-template">
+                <div class="product-card">
+                    <span class="product-id" style="display:none;"></span> <!-- ✅ Add this -->
+
+                    <img src="" alt="">
+                    <div class="product-info">
+                        <div class="details">
+                            <h3></h3>
+                            <p class="category"></p>
+                            <p class="description"></p>
+                            <p><strong>Price:</strong> $<span class="price"></span></p>
+                            <p><strong>Quantity:</strong> <span class="quantity"></span></p>
                         </div>
                         <div class="buttons">
                             <button class="btn btn-warning add-cart">Add to Cart</button>
@@ -107,6 +128,7 @@
     <script src="../js/nav.js"></script>
     <script src="../js/product.js"></script>
     <script src="../js/cart.js"></script>
+    <script src="../js/place.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
