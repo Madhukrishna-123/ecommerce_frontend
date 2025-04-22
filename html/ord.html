@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>ORDERS</h1>
+    <template id="order-template">
+        <div class="order-card border p-3 my-3">
+            <h5>Order ID: <span class="order-id"></span></h5>
+            <p>Status: <span class="order-status text-info"></span></p>
+            <p>Total: $<span class="order-total"></span></p>
+            <p>Date: <span class="order-date"></span></p>
+            <div class="products row mt-3">
+                <!-- Products go here -->
+            </div>
+        </div>
+    </template>
+    
+    <template id="order-product-template">
+        <div class="col-md-4 mb-3">
+            <div class="product border p-2 h-100">
+                <img src="" class="img-fluid mb-2" alt="Product Image">
+                <h6 class="product-name"></h6>
+                <p class="product-category text-muted small"></p>
+                <p class="product-description small"></p>
+                <p class="product-price font-weight-bold">$<span></span></p>
+            </div>
+        </div>
+    </template>
+    <script src="../js/nav.js"></script>
+    <script src="../js/product.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/place.js"></script>
+    <script src="../js/order.js"></script>
+</body>
+</html>

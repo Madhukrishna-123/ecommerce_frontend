@@ -72,47 +72,45 @@
     </div>
 
         <!-- Main Content -->
-        <div class="container">
+        <!-- <div class="container"> -->
         
-            <div class="main-content">
-            
-                <div class="container mt-1 pt-1">
-                    
-                    <div id="product-list" class="">
-                        <!-- Product cards will be inserted here dynamically -->
-                    </div>
-                </div>
+            <div class="container mt-5">
+                <h2 class="mb-4">Your Orders</h2>
+                <div id="orders-container"></div>
             </div>
-            
-
-            <template id="product-template">
-                <div class="product-card">
-                    <span class="product-id" style="display:none;"></span>
-
-                    <img src="" alt="">
-                    <div class="product-info">
-                        <div class="details">
-                            <h3></h3>
-                            <p class="category"></p>
-                            <p class="description"></p>
-                            <p><strong>Price:</strong> $<span class="price"></span></p>
-                            <p><strong>Quantity:</strong> <span class="quantity"></span></p>
-                        </div>
-                        <div class="buttons">
-                            <button class="btn btn-warning add-cart">Add to Cart</button>
-                            <button class="btn btn-success buy-now">Buy Now</button>
-                        </div>
+        
+            <!-- Orders Template -->
+            <template id="order-template">
+                <div class="order-card mb-4 p-3 border bg-light">
+                    <h4>Order ID: <span class="order-id"></span></h4>
+                    <p>Status: <span class="order-status"></span></p>
+                    <p>Total: $<span class="order-total"></span></p>
+                    <p>Date: <span class="order-date"></span></p>
+                    <div class="products mt-3"></div>
+                </div>
+            </template>
+        
+            <!-- Product inside Order Template -->
+            <template id="order-product-template">
+                <div class="product mb-2 p-2 border bg-white d-flex align-items-center">
+                    <img src="" class="mr-3" alt="Product Image" width="100">
+                    <div>
+                        <h5 class="product-name"></h5>
+                        <p class="product-category"></p>
+                        <p><strong>Price:</strong> $<span class="product-price"></span></p>
+                        <p class="product-description"></p>
                     </div>
                 </div>
             </template>
 
 
-        </div>
+        <!-- </div> -->
 
     <script src="../js/nav.js"></script>
     <script src="../js/product.js"></script>
     <script src="../js/cart.js"></script>
     <script src="../js/place.js"></script>
+    <script src="../js/order.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
