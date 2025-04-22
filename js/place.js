@@ -17,7 +17,7 @@ async function placeOrderFromCard(productCard) {
     // ✅ Step 1: Fetch user details
     let userId;
     try {
-        const userRes = await fetch('http://9bf0-45-127-59-91.ngrok-free.app/api/users/userdetails', {
+        const userRes = await fetch('http://localhost:8080/api/users/userdetails', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -47,7 +47,7 @@ async function placeOrderFromCard(productCard) {
     // ✅ Step 3: Fetch Product Details
     let product;
     try {
-        const productRes = await fetch(`http://9bf0-45-127-59-91.ngrok-free.app/api/products/${productId}`);
+        const productRes = await fetch(`http://localhost:8080/api/products/${productId}`);
         if (!productRes.ok) {
             throw new Error("Failed to fetch product details");
         }
@@ -71,7 +71,7 @@ async function placeOrderFromCard(productCard) {
 
     // ✅ Step 5: Place the order
     try {
-        const orderRes = await fetch('http://9bf0-45-127-59-91.ngrok-free.app/api/orders/place', {
+        const orderRes = await fetch('http://localhost:8080/api/orders/place', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,

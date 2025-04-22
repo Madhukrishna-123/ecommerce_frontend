@@ -20,7 +20,7 @@ async function fetchUserDetails() {
     }
 
     try {
-        const response = await fetch('http://9bf0-45-127-59-91.ngrok-free.app/api/users/userdetails', {
+        const response = await fetch('http://localhost:8080/api/users/userdetails', {
             method: 'GET',
             headers: {
                 "Authorization": `Bearer ${token}`
@@ -56,11 +56,11 @@ async function addToCart(productId) {
     }
 
     // Fetch product details
-    const productResponse = await fetch(`http://9bf0-45-127-59-91.ngrok-free.app/api/products/${productId}`);
+    const productResponse = await fetch(`http://localhost:8080/api/products/${productId}`);
     const product = await productResponse.json();
 
     try {
-        const response = await fetch("http://9bf0-45-127-59-91.ngrok-free.app/api/cart/add", {
+        const response = await fetch("http://localhost:8080/api/cart/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

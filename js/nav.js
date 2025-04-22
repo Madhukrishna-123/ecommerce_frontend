@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const payload = JSON.parse(atob(token.split('.')[1])); // Decoding JWT payload
         const userId = payload.userId; // Adjust based on your token structure
 
-        fetch('http://9bf0-45-127-59-91.ngrok-free.app/api/users/userdetails', {
+        fetch('http://localhost:8080/api/users/userdetails', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ✅ Logout Functionality
     logoutBtn.addEventListener('click', () => {
-        fetch('http://9bf0-45-127-59-91.ngrok-free.app/api/users/logout', {
+        fetch('http://localhost:8080/api/users/logout', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`

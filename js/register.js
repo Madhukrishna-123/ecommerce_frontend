@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://9bf0-45-127-59-91.ngrok-free.app/api/users";
+const API_BASE_URL = "http://localhost:8080/api/users";
 // const API_BASE_URL = "http://192.168.1.9:8080/api/users";
 
 function redirectTo(page) {
