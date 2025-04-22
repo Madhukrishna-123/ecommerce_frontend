@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const userId = user.id;
         console.log("📌 User ID (Orders):", userId);
 
-        const ordersResponse = await fetch(`http://localhost:8080/api/orders/user/${userId}`, {
+        const ordersResponse = await fetch(`http://9bf0-45-127-59-91.ngrok-free.app/api/orders/user/${userId}`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             }
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             for (const productId of order.productIds || []) {
                 try {
-                    const productRes = await fetch(`http://localhost:8080/api/products/${productId}`);
+                    const productRes = await fetch(`http://9bf0-45-127-59-91.ngrok-free.app/api/products/${productId}`);
                     if (!productRes.ok) throw new Error("Product not found");
                     const product = await productRes.json();
 
@@ -81,7 +81,7 @@ async function fetchUserDetails() {
     }
 
     try {
-        const response = await fetch('http://localhost:8080/api/users/userdetails', {
+        const response = await fetch('http://9bf0-45-127-59-91.ngrok-free.app/api/users/userdetails', {
             method: 'GET',
             headers: {
                 "Authorization": `Bearer ${token}`
