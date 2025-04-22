@@ -161,7 +161,7 @@ async function clearItemsFromCart() {
     if (!user) return;
 
     try {
-        const response = await fetch(`http://9bf0-45-127-59-91.ngrok-free.app/api/cart/clear/${user.id}`, {
+        const response = await fetch(`http://localhost:8080/api/cart/clear/${user.id}`, {
             method: 'DELETE',
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -195,7 +195,7 @@ async function fetchUserDetails() {
     }
 
     try {
-        const response = await fetch('http://9bf0-45-127-59-91.ngrok-free.app/api/users/userdetails', {
+        const response = await fetch('http://localhost:8080/api/users/userdetails', {
             method: 'GET',
             headers: {
                 "Authorization": `Bearer ${token}`
@@ -219,7 +219,7 @@ async function fetchUserDetails() {
 // Fetch the user's cart items using their ID
 async function fetchCartItems(userId) {
     try {
-        const response = await fetch(`http://9bf0-45-127-59-91.ngrok-free.app/api/cart/${userId}`, {
+        const response = await fetch(`http://localhost:8080/api/cart/${userId}`, {
             method: 'GET',
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -279,7 +279,7 @@ async function removeItemFromCart(productId) {
     if (!user) return;
 
     try {
-        const response = await fetch(`http://9bf0-45-127-59-91.ngrok-free.app/api/cart/remove?userId=${user.id}&productId=${productId}`, {
+        const response = await fetch(`http://localhost:8080/api/cart/remove?userId=${user.id}&productId=${productId}`, {
             method: 'DELETE',
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
